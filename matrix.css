@@ -11,8 +11,8 @@
 
 .matrix-item {
   position: absolute;
-  font-size: 8px; /* Уменьшили размер шрифта для мобильных устройств */
-  animation: fall 10s linear infinite; /* Увеличили продолжительность анимации */
+  font-size: 8px;
+  animation: fall 10s linear infinite; 
   opacity: 0.8;
   background-color: rgba(0, 0, 0, 0);
 }

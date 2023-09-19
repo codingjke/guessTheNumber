@@ -37,10 +37,9 @@ button:hover {
   color: black;
 }
 
-/* Медиа-запрос для стандартного мобильного телефона */
 @media (max-width: 320px) {
   h1, p, div {
-    font-size: 12px; /* Уменьшили размер шрифта для мобильного телефона */
-    padding: 5px 10px; /* Уменьшили внутренние отступы */
+    font-size: 12px; 
+    padding: 5px 10px; 
   }
 }
