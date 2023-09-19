@@ -1,48 +1,87 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const numOfColumns = window.innerWidth / 12;
+
+  for (let i = 0; i < numOfColumns; i++) {
+    const streams = Math.floor(Math.random() * 5) + 1;
+
+    for (let j = 0; j < streams; j++) {
+      createMatrixItem(i);
+    }
+  }
+});
+
+function createMatrixItem(columnIndex) {
+  const item = document.createElement("div");
+  item.classList.add("matrix-item");
+  item.style.left = columnIndex * 12 + "px";
+  item.style.top = -(Math.random() * window.innerHeight) + "px";
+  item.style.animationDuration = Math.random() * 5 + 2 + "s";
+  item.style.animationDelay = Math.random() * 5 + "s";
+  item.innerText = Math.random() > 0.5 ? "1" : "0";
+  document.body.appendChild(item);
+
+  item.addEventListener("animationend", () => {
+    document.body.removeChild(item);
+    createMatrixItem(columnIndex);
+  });
+}
+
 const secretNum = Math.ceil(Math.random() * 10);
 let tries = 0;
 
-const generalBugPhrases = [
-  "Программирование — это искусство ошибиться на всех возможных языках. Ищи дальше!",
-  "Ошибка в коде? Может, это просто новый стандарт ISO?",
-  "Если ты не можешь понять свой код, то как его сможет понять машина?",
-  "Баги в программировании — это как покемоны. Ты не знаешь, где они, пока не начнешь их искать!",
-  "Если ты не уверен, работает ли твой код, то, вероятно, он не работает.",
-];
-
-const hintsForRight = [
-  "Вы читаете надпись на стене: \n Здесь был HelloWorldHero! \n Когда жизнь ставит тебя в тупик, добавь костыль! Ищи правее!",
-  "На столе лежит записка: \n Баги любят прятаться справа!",
-  "На двери висит табличка: \n Если бы программирование было легко, его бы называли футболом. Попробуй правее.",
-  "На экране мерцает сообщение: \n Ты почти там! Немного правее...",
-  "На полу лежит записка: \n Следующий раз, когда ты будешь жаловаться на жизнь, вспомни о тех моментах, когда ты искал баги. Попробуй правее.",
-];
-
-const hintsForLeft = [
-  "Вы видете табличку с надписью: \n Почему программисты ненавидят природу? Там слишком много багов. Ищи левее!",
-  "На окне валяется старая записка: \n Чтобы стать хорошим программистом, нужно иметь много плохого кода. Подсказка: ищи левее.",
-  "На стуле лежит рисунок со стрелкой влево и подписью: \n Баги, баги, баги... Все они слева.",
-  "На стене выделяется граффити: \n Иногда нужно вернуться назад, чтобы двигаться вперед. Попробуй левее.",
-  "За углом вы находите смешную картинку с подписью: \n Баг влево пошел, а ты за ним?",
-];
-
 function guessNum(num) {
-  if (tries >= 5) {
-    return alert("Закончились попытки. Жми FПЯТЬ!");
-  }
-  if (num === secretNum) {
+  if (tries >= 7) {
     alert(
-      "ТЫ нашел большой и жирный BUG! Помни хаЦкер - Багов нет, есть неожиданные фичи."
+      "ReferenceError: 'tries' exceeded its limit. Баг победил. Вернитесь позже!"
     );
-    location.reload(); // Это перезагрузит страницу
     return;
   }
 
-  alert(generalBugPhrases[tries]);
-
-  if (num < secretNum) {
-    alert(hintsForRight[tries]);
+  if (num === secretNum) {
+    alert(
+      "TypeError: Cannot destructure property 'location' of 'Bug' as it is null. Поздравляем, вы нашли и устранили Баг!"
+    );
+    location.reload(); // Перезагрузка страницы
   } else {
-    alert(hintsForLeft[tries]);
+    let direction = num < secretNum ? "правее" : "левее";
+
+    switch (tries) {
+      case 0:
+        alert(
+          `SyntaxError: Unexpected bug token in JSON at position 0. Баг где-то ${direction}, но не в JSON!`
+        );
+        break;
+      case 1:
+        alert(
+          `EvalError: Caller not allowed to execute bug snippets. Баг усиливается и избегает eval(). Он ${direction}.`
+        );
+        break;
+      case 2:
+        alert(
+          `RangeError: Maximum call stack size exceeded. Баг прячется глубоко в рекурсии. Найдите его ${direction}!`
+        );
+        break;
+      case 3:
+        alert(
+          `URIError: URI malformed. Баг испортил ваш URL! Но дал подсказку, что он ${direction}.`
+        );
+        break;
+      case 4:
+        alert(
+          `TypeError: Cannot convert bug to object. Похоже, Баг не хочет становиться объектом. Но он ${direction}!`
+        );
+        break;
+      case 5:
+        alert(
+          `ReferenceError: 'bug' is not defined. Вы почти его нашли! Баг ускользает, но он ${direction}.`
+        );
+        break;
+      case 6:
+        alert(
+          `Error: Too many recursive calls in bug search. Баг прячется где-то ${direction}! Будьте осторожны!`
+        );
+        break;
+    }
+    tries++;
   }
-  tries++;
 }
