@@ -2,16 +2,18 @@ const secretNum = Math.ceil(Math.random() * 10);
 let tries = 0;
 
 function guessNum(num) {
-  if (tries >= 7) {
+  if (tries >= 5) {
     alert(
-      "ReferenceError: 'tries' exceeded its limit. Баг победил. Вернитесь позже!"
+      "ТЫ ПРОИГРАЛ! ЖМИ F-ПЯТЬ НЕ ОСТАНАВЛИВАЙСЯ"
     );
     return;
   }
 
   if (num === secretNum) {
     alert(
-      "TypeError: Cannot destructure property 'location' of 'Bug' as it is null. Поздравляем, вы нашли и устранили Баг!"
+      "Ваш ультимативный код 'Hello, World!' уничтожил БАГА! Вы стали Джуном1337 и покорили мир кода!"
+
+
     );
     location.reload();
   } else {
@@ -20,37 +22,52 @@ function guessNum(num) {
     switch (tries) {
       case 0:
         alert(
-          `SyntaxError: Unexpected bug token in JSON at position 0. Баг где-то ${direction}, но не в JSON!`
+          `SyntaxError: О нет, вы попали в ловушку типов данных! Ваша функция ожидала численное значение, а получила строку. Где этот неловкий 'баг'? Он ушел куда-то ${direction}.`
         );
         break;
       case 1:
         alert(
-          `EvalError: Caller not allowed to execute bug snippets. Баг усиливается и избегает eval(). Он ${direction}.`
+          `ReferenceError: Скандал! 'Баг' не знает, что такое 'undefined'. Проверьте правильность имени переменной и попробуйте снова. Он может быть где-то ${direction}.`
         );
         break;
       case 2:
         alert(
-          `RangeError: Maximum call stack size exceeded. Баг прячется глубоко в рекурсии. Найдите его ${direction}!`
+          `SyntaxError: Эй, что-то с синтаксисом не так! Мой 'баг' детектор светится, и это не в хорошем смысле. Он где-то ${direction}.`
         );
         break;
       case 3:
         alert(
-          `URIError: URI malformed. Баг испортил ваш URL! Но дал подсказку, что он ${direction}.`
+          `RangeError: Больше не влазит? 'Баг' может быть где-то там, в глубинах рекурсии. Осторожно, это темная сторона 'баг'! Он может быть ${direction}.`
         );
         break;
       case 4:
         alert(
-          `TypeError: Cannot convert bug to object. Похоже, Баг не хочет становиться объектом. Но он ${direction}!`
+          `EvalError: Eval, eval, eval... Кажется, вы запутали мой 'баг'. Он ушел в бесконечность и бесконечно смеется. Он может быть где-то ${direction}.`
         );
         break;
       case 5:
         alert(
-          `ReferenceError: 'bug' is not defined. Вы почти его нашли! Баг ускользает, но он ${direction}.`
+          `URIError: Ваш URI запутал 'баг'. Он не смог разобраться с этой странной строкой. Попробуйте снова, и убедитесь, что 'баг' уйдет. Он где-то ${direction}.`
         );
         break;
       case 6:
         alert(
-          `Error: Too many recursive calls in bug search. Баг прячется где-то ${direction}! Будьте осторожны!`
+          `TypeError (не является функцией): Вызовите 'баг' как функцию? Это не 'баг', это просто строка. Увы, но 'баг' не отвечает на ваши вызовы. Он ускользает, двигаясь ${direction}.`
+        );
+        break;
+      case 7:
+        alert(
+          `TypeError (не является объектом): Ожидаем объект, а получаем число. Где этот бесцеремонный 'баг', который выдаёт числа за объекты? Он может быть ${direction}.`
+        );
+        break;
+      case 8:
+        alert(
+          `TypeError (неверное количество аргументов): Эй, вы принесли слишком много или слишком мало друзей на этот 'баг' вечеринку! Он не знает, что с ним делать. Он может быть где-то ${direction}.`
+        );
+        break;
+      case 9:
+        alert(
+          `TypeError (невозможно прочитать свойство 'XXX' из undefined): Скандал! 'Баг' ожидал, что это будет объект, но получил 'undefined'. Где этот пропавший объект? Он может быть ${direction}.`
         );
         break;
     }
