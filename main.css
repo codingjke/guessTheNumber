@@ -13,7 +13,9 @@ body {
   text-align: center;
 }
 
-h1, p, div {
+h1,
+p,
+div {
   background-color: rgba(0, 0, 0, 0.8);
   padding: 10px 20px;
   border-radius: 5px;
@@ -38,8 +40,10 @@ button:hover {
 }
 
 @media (max-width: 320px) {
-  h1, p, div {
-    font-size: 12px; 
-    padding: 5px 10px; 
+  h1,
+  p,
+  div {
+    font-size: 12px;
+    padding: 5px 10px;
   }
 }

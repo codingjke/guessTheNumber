@@ -3,17 +3,13 @@ let tries = 0;
 
 function guessNum(num) {
   if (tries >= 5) {
-    alert(
-      "ТЫ ПРОИГРАЛ! ЖМИ F-ПЯТЬ НЕ ОСТАНАВЛИВАЙСЯ!!!"
-    );
+    alert("ТЫ ПРОИГРАЛ! ЖМИ F-ПЯТЬ НЕ ОСТАНАВЛИВАЙСЯ!!!");
     return;
   }
 
   if (num === secretNum) {
     alert(
       "Ваш ультимативный код 'Hello, World!' уничтожил БАГА! Вы стали Джуном1337 и покорили мир кода!"
-
-
     );
     location.reload();
   } else {
