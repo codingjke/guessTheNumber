@@ -2,10 +2,9 @@ body {
     background-color: black;
     color: green;
     font-family: 'Courier New', Courier, monospace;
-    overflow: hidden;
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,7 +23,7 @@ p {
     padding: 10px 20px;
     border-radius: 5px;
     text-align: justify;
-    max-width: 70%;
+    max-width: 90%; /* Увеличиваем максимальную ширину для мобильных устройств */
     margin-bottom: 15px;
 }
 
@@ -49,8 +48,24 @@ button:hover {
     color: black;
 }
 
-.matrix-item {
+.matrix-container {
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.matrix-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.matrix-item {
+    position: relative;
     font-size: 12px;
     animation: fall infinite;
     animation-timing-function: linear;
@@ -59,6 +74,21 @@ button:hover {
 
 @keyframes fall {
     to {
-        transform: translateY(calc(100% + 100px)); /* чтобы элементы двигались за пределы экрана */
+        transform: translateY(calc(100vh + 100px)); /* Для мобильных устройств увеличиваем высоту экрана */
+    }
+}
+
+/* Медиа-запрос для мобильных устройств с максимальной шириной 768px */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px; /* Уменьшаем размер шрифта заголовка */
+    }
+
+    p {
+        font-size: 16px; /* Уменьшаем размер шрифта абзацев */
+    }
+
+    .matrix-item {
+        font-size: 8px; /* Уменьшаем размер шрифта для мобильных устройств */
     }
 }
