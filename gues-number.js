@@ -4,7 +4,7 @@ let tries = 0;
 function guessNum(num) {
   if (tries >= 5) {
     alert(
-      "ТЫ ПРОИГРАЛ! ЖМИ F-ПЯТЬ НЕ ОСТАНАВЛИВАЙСЯ"
+      "ТЫ ПРОИГРАЛ! ЖМИ F-ПЯТЬ НЕ ОСТАНАВЛИВАЙСЯ!!!"
     );
     return;
   }
