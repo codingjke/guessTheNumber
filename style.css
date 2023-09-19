@@ -1,94 +1,66 @@
 body {
-    background-color: black;
-    color: green;
-    font-family: 'Courier New', Courier, monospace;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  background-color: black;
+  color: green;
+  font-family: "Courier New", Courier, monospace;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 h1 {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 10px 20px;
-    border-radius: 5px;
-    margin-bottom: 15px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-bottom: 15px;
 }
 
 p {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-align: justify;
-    max-width: 90%; /* Увеличиваем максимальную ширину для мобильных устройств */
-    margin-bottom: 15px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: justify;
+  max-width: 70%;
+  margin-bottom: 15px;
 }
 
 div {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 15px;
-    border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 15px;
+  border-radius: 5px;
 }
 
 button {
-    background-color: black;
-    border: 2px solid green;
-    color: green;
-    margin: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  background-color: black;
+  border: 2px solid green;
+  color: green;
+  margin: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: green;
-    color: black;
-}
-
-.matrix-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-.matrix-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  background-color: green;
+  color: black;
 }
 
 .matrix-item {
-    position: relative;
-    font-size: 12px;
-    animation: fall infinite;
-    animation-timing-function: linear;
-    opacity: 0.8;
+  position: absolute;
+  font-size: 12px;
+  animation: fall infinite;
+  animation-timing-function: linear;
+  opacity: 0.8;
 }
 
 @keyframes fall {
-    to {
-        transform: translateY(calc(100vh + 100px)); /* Для мобильных устройств увеличиваем высоту экрана */
-    }
-}
-
-/* Медиа-запрос для мобильных устройств с максимальной шириной 768px */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 24px; /* Уменьшаем размер шрифта заголовка */
-    }
-
-    p {
-        font-size: 16px; /* Уменьшаем размер шрифта абзацев */
-    }
-
-    .matrix-item {
-        font-size: 8px; /* Уменьшаем размер шрифта для мобильных устройств */
-    }
+  to {
+    transform: translateY(
+      calc(100% + 100px)
+    ); /* чтобы элементы двигались за пределы экрана */
+  }
 }
