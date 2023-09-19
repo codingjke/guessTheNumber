@@ -1,40 +1,24 @@
+/* Общие стили для всех экранов */
 body {
   background-color: black;
   color: green;
   font-family: "Courier New", Courier, monospace;
   margin: 0;
   padding: 0;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-}
-
-h1 {
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin-bottom: 15px;
+  min-height: 100vh;
   text-align: center;
-  font-size: 24px;
 }
 
-p {
+h1, p, div {
   background-color: rgba(0, 0, 0, 0.8);
   padding: 10px 20px;
   border-radius: 5px;
-  text-align: justify;
-  max-width: 70%;
   margin-bottom: 15px;
-  font-size: 16px;
-}
-
-div {
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 15px;
-  border-radius: 5px;
+  max-width: 90%;
 }
 
 button {
@@ -51,4 +35,12 @@ button {
 button:hover {
   background-color: green;
   color: black;
+}
+
+/* Медиа-запрос для стандартного мобильного телефона */
+@media (max-width: 320px) {
+  h1, p, div {
+    font-size: 12px; /* Уменьшили размер шрифта для мобильного телефона */
+    padding: 5px 10px; /* Уменьшили внутренние отступы */
+  }
 }
